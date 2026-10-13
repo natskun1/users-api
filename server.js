@@ -9,7 +9,10 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 // Kept for possible future server-side OTP activity
